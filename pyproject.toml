@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "wordgen"
+version = "2022.0.0"
+description = "Word training set generator for learning typing and improving your performance"
+authors = ["Octelly <eli@stefek.cz>"]
+readme = "README.md"
+license = "Unlicense"
+repository = "https://github.com/Johnystar/wordgen"
+classifiers = [
+	"Development Status :: 2 - Pre-Alpha",
+	"Environment :: Console",
+	"License :: OSI Approved :: The Unlicense (Unlicense)",
+	"Natural Language :: English",
+	"Programming Language :: Python :: 3 :: Only",
+	"Topic :: Utilities"
+]
+packages = [
+    { include = "wordgen", from = "src" },
+]
+include = [
+    "src/wordgen/data/courses/*",
+    "src/wordgen/data/words/*",
+]
+
+
+[tool.poetry.scripts]
+wordgen = 'wordgen.cli:cli'
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "^8.1.3"
+pyperclip = "^1.8.2"
+appdirs = "^1.4.4"
+
+[tool.poetry.group.dev.dependencies]
+pyright = "^1.1.279"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -12,6 +12,14 @@ You can customise the script to your heart's content on the first few lines. I d
 
 i forgor what i was typing about 💀
 
+## Project versioning
+
+`year.breaking.minor`
+
+- `year` of release
+- goes up in case there's a `breaking` change
+- `minor` goes up with each update
+
 ## Credits
 
 - code by Octelly
