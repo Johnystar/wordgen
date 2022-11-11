@@ -9,8 +9,8 @@ This was my solution. `wordgen` generates (well, filters out really) curated wor
 ## Installation
 
 <details>
-  <summary>**from PyPi**</summary>
-
+  <summary><b>from PyPi</b></summary>
+  
   - *nix: `pipx install wordgen` or `python3 -m pip install wordgen`
   - Win: `pipx install wordgen` or `python -m pip install wordgen`
  
@@ -18,7 +18,7 @@ This was my solution. `wordgen` generates (well, filters out really) curated wor
 </details>
 
 <details>
-  <summary>**from source**</summary>
+  <summary><b>from source</b></summary>
 
   If you want to do this, you can probably figure it out. If you can't, give me some time and I'll eventually rewrite this section to be more useful. (or someone can make a pr)
 </details>
