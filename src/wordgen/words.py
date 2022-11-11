@@ -45,11 +45,17 @@ class Words():
             except WordFilterError as _:
                 pass
 
-def from_data(words:str="english", course:str="colemak_DHm", level:int=1) -> Words:
+def from_data(words:list[str]=["english"], course:str="colemak_DHm", level:int=1) -> Words:
     word_files = data.get_available_files("words")
     course_files = data.get_available_files("courses")
-
-    word_list = data.parse_file(word_files[words])
+    
+    word_list = [
+        item for sublist in
+        # the following list of lists get flattend
+        # into a single word_list list of strings:
+        [ data.parse_file(word_files[wordset]) for wordset in words ]
+        for item in sublist
+    ]
     course_list = data.parse_file(course_files[course])
 
     assert level >= 1

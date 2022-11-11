@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "wordgen"
-version = "2022.0.0"
+version = "2022.0.1"
 description = "Word training set generator for learning typing and improving your performance"
 authors = ["Octelly <eli@stefek.cz>"]
 readme = "README.md"
