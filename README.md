@@ -8,32 +8,38 @@ This was my solution. `wordgen` generates (well, filters out really) curated wor
 
 ## Installation
 
-### From PyPi
+<details>
+  <summary>**from PyPi**</summary>
 
-- *nix: `pipx install wordgen` or `python3 -m pip install wordgen`
-- Win: `pipx install wordgen` or `python -m pip install wordgen`
+  - *nix: `pipx install wordgen` or `python3 -m pip install wordgen`
+  - Win: `pipx install wordgen` or `python -m pip install wordgen`
+ 
+  > **Note**: May differ based on your installation
+</details>
 
-> **Note**: May differ based on your installation
+<details>
+  <summary>**from source**</summary>
 
-### From source
-
-If you want to do this, you can probably figure it out. If you can't, give me some time and I'll eventually rewrite this section to be more useful. (or someone can make a pr)
+  If you want to do this, you can probably figure it out. If you can't, give me some time and I'll eventually rewrite this section to be more useful. (or someone can make a pr)
+</details>
 
 ## Configuration
 
-As of version `2022.0.1`, there isn't any config file, however, you can include your own custom courses and wordsets in these paths:
+As of version `2022.0.1`, there isn't any config file, however, you can include your own custom [courses](src/wordgen/data/courses) and [wordsets](src/wordgen/data/words) in these paths:
 
-- Linux: `$XDG_CONFIG_HOME/.config/wordgen/<courses or wordsets>/` (`$XDG_CONFIG_HOME` default to `~/.config/`)
-- Mac OS: `~/Library/Preferences/wordgen/<courses or wordsets>/`
-- Win XP or older: `C:\Documents and Settings\<username>\Local Settings\Application Data\octelly\wordgen\<courses or wordsets>\`
-- Win 7 or newer: `C:\Users\<username>\AppData\Roaming\octelly\wordgen\<courses or wordsets>\`
+|          system | path                                                                                                       |
+|            ---: | :---                                                                                                       |
+|           Linux | `$XDG_CONFIG_HOME/.config/wordgen/<courses or words>/` (`$XDG_CONFIG_HOME` default to `~/.config/`)        |
+|          Mac OS | `~/Library/Preferences/wordgen/<courses or words>/`                                                        |
+| Win XP or older | `C:\Documents and Settings\<username>\Local Settings\Application Data\octelly\wordgen\<courses or words>\` |
+|  Win 7 or newer | `C:\Users\<username>\AppData\Roaming\octelly\wordgen\<courses or words>\`                                  |
 
 ## Project versioning
 
 `year.breaking.minor`
 
 - `year` of release
-- goes up in case there's a `breaking` change
+- goes up in case there's a `breaking` change (this resets `minor` back to 0)
 - `minor` goes up with each update
 
 ## Credits
