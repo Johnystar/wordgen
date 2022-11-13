@@ -1,5 +1,5 @@
 from random import randrange
-from .exceptions import WordFilterError, WordTooShortError, DuplicateWordError, BannedSymbolsError
+from .exceptions import WordFilterError, WordTooShortError, DuplicateWordError, BannedSymbolsError, NotEnoughWordsError
 from . import data
 
 
@@ -14,9 +14,9 @@ class Words():
         self.allowed_symbols = allowed_symbols
 
 
-    def get_words(self, amount:int) -> list[str]:
+    def get_n_words(self, amount:int) -> list[str]:
         if amount > len(self.list):
-            raise Exception("Not enough words available!")
+            raise NotEnoughWordsError("Not enough words available!")
 
         list_copy = self.list.copy()
         output = []
@@ -25,6 +25,10 @@ class Words():
             output.append(list_copy.pop(randrange(len(list_copy))))
 
         return output
+
+
+    def get_words(self) -> list[str]:
+        return self.list.copy()
 
 
     def add_word(self, word:str) -> None:

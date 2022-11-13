@@ -10,3 +10,7 @@ class DuplicateWordError(WordFilterError):
 
 class BannedSymbolsError(WordFilterError):
     pass
+
+
+class NotEnoughWordsError(Exception):
+    pass

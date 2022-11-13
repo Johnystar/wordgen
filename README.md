@@ -29,7 +29,7 @@ As of version `2022.0.1`, there isn't any config file, however, you can include 
 
 |          system | path                                                                                                       |
 |            ---: | :---                                                                                                       |
-|           Linux | `$XDG_CONFIG_HOME/.config/wordgen/<courses or words>/` (`$XDG_CONFIG_HOME` default to `~/.config/`)        |
+|           Linux | `$XDG_CONFIG_HOME/.config/wordgen/<courses or words>/` (`$XDG_CONFIG_HOME` defaults to `~/.config/`)       |
 |          Mac OS | `~/Library/Preferences/wordgen/<courses or words>/`                                                        |
 | Win XP or older | `C:\Documents and Settings\<username>\Local Settings\Application Data\octelly\wordgen\<courses or words>\` |
 |  Win 7 or newer | `C:\Users\<username>\AppData\Roaming\octelly\wordgen\<courses or words>\`                                  |
@@ -38,7 +38,7 @@ As of version `2022.0.1`, there isn't any config file, however, you can include 
 
 `year.breaking.minor`
 
-- `year` of release
+- `year` of release (this resets both `breaking` and `minor`)
 - goes up in case there's a `breaking` change (this resets `minor` back to 0)
 - `minor` goes up with each update
 
