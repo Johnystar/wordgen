@@ -2,21 +2,43 @@ import click
 import pyperclip as clip
 from . import words
 from .exceptions import NotEnoughWordsError
+from .data import get_available_files, parse_file
+
+
+def shell_completion(ctx, param, incomplete) -> list[str]:
+    match param.name:
+        case 'course':
+            return [file for file in get_available_files('courses') if file.startswith(incomplete)]
+        case 'wordset':
+            return [file for file in get_available_files('words') if file.startswith(incomplete)]
+        case 'level':
+            try:
+                return [
+                    str(x)
+                    for x in range(
+                        1,
+                        len(parse_file(get_available_files('courses')[ctx.params['course']]))+1
+                    )]
+            except KeyError as _:
+                return []
 
 @click.command(context_settings={
     'help_option_names': ['-h', '--help']
 })
 @click.option('-c', '--course',
               default="colemak_DHm", show_default=True,
+              shell_complete=shell_completion,
               help="Which course to prepare")
 @click.option('-s', '--wordset',
               default=["english"], show_default=True, multiple=True,
+              shell_complete=shell_completion,
               help="Which wordset(s) to use")
 @click.option('-n', '--words', 'amount',
               default=50, show_default=True,
               help="Amount of words to output, set to n<0 to output all (useful in combination with Monkeytype's randomiser)")
 @click.option('-l', '--level',
               default=1, show_default=True,
+              shell_complete=shell_completion,
               help="Level of difficulty (amount of levels may vary per course)")
 @click.option('-o', '--copy',
               is_flag=True,
@@ -55,7 +77,9 @@ def cli(course:str,
     else:
         output = w.get_words()
 
-    click.echo(' '.join(output))
-    if copy: clip.copy(output)
+    output_text = ' '.join(output)
+
+    click.echo(output_text)
+    if copy: clip.copy(output_text)
 
     if not plain: click.echo("Word count: " + str(len(output)))
